@@ -29,6 +29,15 @@ namespace DotNet8WebAPI_LiteDB.Controllers
             return Ok(lst);
         }
 
+        [HttpGet("{id}")]
+        public IActionResult GetById(string id) {
+            var db = new LiteDatabase(_filePath);
+            var collection = db.GetCollection<BlogModel>("Blog");
+            var item = collection.Find(x => x.BlogId == id).FirstOrDefault();
+            db.Dispose();
+            return Ok(item);
+        }
+
         [HttpPost]
         public IActionResult Create()
         {
