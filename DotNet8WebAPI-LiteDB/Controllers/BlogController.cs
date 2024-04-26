@@ -70,5 +70,42 @@ namespace DotNet8WebAPI_LiteDB.Controllers
             db.Dispose();
             return Ok(result);
         }
+
+        [HttpPatch("{id}")]
+        public IActionResult Patch(string id,BlogModel reqModel)
+        {
+            var db = new LiteDatabase(_filePath);
+            var collection = db.GetCollection<BlogModel>("Blog");
+            var item = collection.Find(x => x.BlogId == id).FirstOrDefault();
+
+            if (!string.IsNullOrEmpty(reqModel.BlogTitle))
+            {
+                item.BlogTitle = reqModel.BlogTitle;
+            }
+
+            if (!string.IsNullOrEmpty(reqModel.BlogAuthor))
+            {
+                item.BlogAuthor = reqModel.BlogAuthor;
+            }
+
+            if (!string.IsNullOrEmpty(reqModel.BlogContent))
+            {
+                item.BlogContent = reqModel.BlogContent;
+            }
+            var result = collection.Update(item);
+            db.Dispose();
+            return Ok(result);
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(string id)
+        {
+            var db = new LiteDatabase(_filePath);
+            var collection = db.GetCollection<BlogModel>("Blog");
+            var item = collection.Find(x => x.BlogId == id).FirstOrDefault();
+            var result = collection.Delete(item.Id);
+            db.Dispose();
+            return Ok(result);
+        }
     }
 }
