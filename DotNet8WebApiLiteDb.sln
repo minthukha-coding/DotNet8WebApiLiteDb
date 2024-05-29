@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.34804.81
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8WebAPI-LiteDB", "DotNet8WebAPI-LiteDB\DotNet8WebAPI-LiteDB.csproj", "{10B21BFF-93FD-4932-9CA7-7EB0C86B8CE3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8WebApiLiteDb", "DotNet8WebApiLiteDb\DotNet8WebApiLiteDb.csproj", "{10B21BFF-93FD-4932-9CA7-7EB0C86B8CE3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
